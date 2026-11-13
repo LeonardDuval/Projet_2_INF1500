@@ -1,6 +1,9 @@
 import time
 from functools import wraps
 
+import os
+import json
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
@@ -69,3 +72,39 @@ def r2_numpy(y_vrai: np.ndarray, y_pred: np.ndarray) -> float:
     ss_res = ((y_vrai - y_pred) ** 2).sum(axis=0)
     ss_tot = ((y_vrai - y_vrai.mean(axis=0)) ** 2).sum(axis=0)
     return float((1 - ss_res / ss_tot).mean())
+
+def evaluer(modele, X_test, y_test) -> float:
+    """Renvoie le R² (échelle log) du modèle sur le jeu de test."""
+    return r2_numpy(y_test, modele.predict(X_test))
+
+
+def construire_metadonnees(X: pd.DataFrame, top: list[str],
+                           r2_modele: float, r2_base: float) -> dict:
+    """Construit le dictionnaire de métadonnées pour l'interface."""
+    variables = []
+    for nom in COLONNES_ENTREE:
+        if nom == "Year":
+            variables.append({"nom": nom, "type": "numerique",
+                              "min": int(X[nom].min()), "max": int(X[nom].max())})
+        else:
+            valeurs = sorted(X[nom].unique().tolist())
+            variables.append({"nom": nom, "type": "categorielle",
+                              "valeurs": valeurs})
+    return {
+        "cibles": CIBLES,
+        "type_probleme": "regression",
+        "transformation": "log1p",
+        "top_editeurs": top,
+        "variables": variables,
+        "metrique": {"nom": "R2 (log)", "valeur": r2_modele,
+                     "reference": r2_base},
+    }
+
+
+def sauvegarder(pipeline: Pipeline, meta: dict, dossier: str) -> None:
+    """Écrit modele.joblib et metadonnees.json dans dossier."""
+    os.makedirs(dossier, exist_ok=True)
+    joblib.dump(pipeline, os.path.join(dossier, "modele.joblib"))
+    with open(os.path.join(dossier, "metadonnees.json"), "w",
+              encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False, indent=2)
