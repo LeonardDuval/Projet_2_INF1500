@@ -1,0 +1,1 @@
+« 4 lignes avec une année > 2016 : une erreur de saisie évidente (DS en 2020) et trois sorties de 2017 dont les ventes sont incomplètes, car postérieures à la collecte des données. Suppression (0,02 % du jeu). »
