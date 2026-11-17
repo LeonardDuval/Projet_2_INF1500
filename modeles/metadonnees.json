@@ -1,0 +1,127 @@
+{
+  "cibles": [
+    "NA_Sales",
+    "EU_Sales",
+    "JP_Sales",
+    "Other_Sales"
+  ],
+  "type_probleme": "regression",
+  "transformation": "log1p",
+  "top_editeurs": [
+    "Electronic Arts",
+    "Activision",
+    "Namco Bandai Games",
+    "Ubisoft",
+    "Konami Digital Entertainment",
+    "THQ",
+    "Nintendo",
+    "Sony Computer Entertainment",
+    "Sega",
+    "Take-Two Interactive",
+    "Capcom",
+    "Atari",
+    "Tecmo Koei",
+    "Square Enix",
+    "Warner Bros. Interactive Entertainment",
+    "Disney Interactive Studios",
+    "Eidos Interactive",
+    "Midway Games",
+    "505 Games",
+    "Microsoft Game Studios"
+  ],
+  "variables": [
+    {
+      "nom": "Platform",
+      "type": "categorielle",
+      "valeurs": [
+        "2600",
+        "3DO",
+        "3DS",
+        "DC",
+        "DS",
+        "GB",
+        "GBA",
+        "GC",
+        "GEN",
+        "GG",
+        "N64",
+        "NES",
+        "NG",
+        "PC",
+        "PCFX",
+        "PS",
+        "PS2",
+        "PS3",
+        "PS4",
+        "PSP",
+        "PSV",
+        "SAT",
+        "SCD",
+        "SNES",
+        "TG16",
+        "WS",
+        "Wii",
+        "WiiU",
+        "X360",
+        "XB",
+        "XOne"
+      ]
+    },
+    {
+      "nom": "Year",
+      "type": "numerique",
+      "min": 1980,
+      "max": 2016
+    },
+    {
+      "nom": "Genre",
+      "type": "categorielle",
+      "valeurs": [
+        "Action",
+        "Adventure",
+        "Fighting",
+        "Misc",
+        "Platform",
+        "Puzzle",
+        "Racing",
+        "Role-Playing",
+        "Shooter",
+        "Simulation",
+        "Sports",
+        "Strategy"
+      ]
+    },
+    {
+      "nom": "Publisher",
+      "type": "categorielle",
+      "valeurs": [
+        "505 Games",
+        "Activision",
+        "Atari",
+        "Autre",
+        "Capcom",
+        "Disney Interactive Studios",
+        "Eidos Interactive",
+        "Electronic Arts",
+        "Konami Digital Entertainment",
+        "Microsoft Game Studios",
+        "Midway Games",
+        "Namco Bandai Games",
+        "Nintendo",
+        "Sega",
+        "Sony Computer Entertainment",
+        "Square Enix",
+        "THQ",
+        "Take-Two Interactive",
+        "Tecmo Koei",
+        "Ubisoft",
+        "Warner Bros. Interactive Entertainment"
+      ]
+    }
+  ],
+  "metrique": {
+    "nom": "R2 (log)",
+    "valeur": 0.21835717963182918,
+    "reference": -0.00025424052237538186
+  }
+}
