@@ -26,7 +26,6 @@ def main() -> None:
     print(f"R2 baseline : {r2_base:.3f}")
     print(f"R2 modele   : {r2_modele:.3f}")
 
-    # Graphique prédit vs réel (une région par panneau)
     pred = modele.predict(X_test)
     fig, axes = plt.subplots(1, 4, figsize=(16, 4))
     for i, ax in enumerate(axes):
