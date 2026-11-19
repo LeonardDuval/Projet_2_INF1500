@@ -8,7 +8,7 @@ Format:
 
 | Jeu de données | vgsales.csv (Kaggle) ; version enrichie avec scores critiques et ESRB | **vgsales.csv** (16 598 lignes, source vgchartz via Kaggle). Version enrichie écartée : beaucoup de valeurs manquantes, moins de lignes exploitables. Licence à vérifier sur la page Kaggle. |
 
-| Colonnes d'entrée | 5 colonnes (exigé) ; 4 colonnes | **4 colonnes** : Platform, Year, Genre, Publisher. `Rank` exclue (calculée à partir des ventes : fuite d'information), `Name` exclue (identifiant quasi unique). Écart avec l'énoncé à faire accepter. |
+| Colonnes d'entrée | 4 colonnes | **4 colonnes** : Platform, Year, Genre, Publisher. `Rank` exclue (calculée à partir des ventes : fuite d'information), `Name` exclue (identifiant quasi unique). Écart avec l'énoncé à faire accepter. |
 
 | Variables cibles | Une cible (`Global_Sales`) ; quatre cibles régionales | **Quatre cibles** : NA, EU, JP, Other. L'interface affiche déjà quatre régions. Un seul modèle multi-sorties. | 
 
